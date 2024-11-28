@@ -35,6 +35,24 @@ def run():
                 st.dataframe(df)
             except Exception as e:
                 st.error(f"Error al leer el archivo {uploaded_file.name}: {e}")
+    
+    # Boton para iniciar simulación
+    col7, col8, col9 = st.columns([1, 1, 1])
+    with col8:
+        if st.button('🛫 - Iniciar Simulación'):
+            st.write('Simulación en progreso...')
+            st.write('Simulación finalizada')
+            st.write('Resultados:')
+            st.write('Máquina 1:')
+            st.write(f'Litros: {m1_litros}')
+            st.write(f'Tiempo de limpieza: {m1_tiempo} horas')
+            st.write('Máquina 2:')
+            st.write(f'Litros: {m2_litros}')
+            st.write(f'Tiempo de limpieza: {m2_tiempo} horas')
+            st.write('Máquina 3:')
+            st.write(f'Litros: {m3_litros}')
+            st.write(f'Tiempo de limpieza: {m3_tiempo} horas')
+    
 
 if __name__ == "__main__":
     run()
