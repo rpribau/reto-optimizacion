@@ -13,6 +13,5 @@ if method == "Generación de datos (Montecarlo)":
     st.title('Generación de datos (Montecarlo)')
     mc_run()
 
-if method == "Método Congruencial Lineal":
-    st.title('Simulaciones')
+if method == "Simulaciones":
     pipe_run()
