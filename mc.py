@@ -74,6 +74,23 @@ def obtener_datos(limite_inferior,limite_superior,enfoque):
     print(f"Media: {resultado[0]}, Varianza: {resultado[1]}")
     return resultado[0]
 
+def obtener_datos2(limite_inferior,limite_superior,enfoque,enfoque2):
+    dias=5
+    total_experimentos=100
+    simulacion = SimulacionMonteCarlo()
+    resultado = simulacion.monte_carlo(limite_inferior, limite_superior, dias, total_experimentos, enfoque)
+    print(f"Media: {resultado[0]}, Varianza: {resultado[1]}")
+    if enfoque2 == 0: 
+        return resultado[0]*1.1
+    if enfoque2 == 1: 
+        return resultado[0]*1.2
+    if enfoque2 == 2: 
+        return resultado[0]*1.3
+    if enfoque2 == 3: 
+        return resultado[0]*1.4
+    if enfoque2 == 4: 
+        return resultado[0]*1.5
+
 def run():
     st.header("Simulación de Producción de Salsas")
     
@@ -143,14 +160,32 @@ def run():
         simulacion = SimulacionMonteCarlo()
         
         # Generate data for salsa verde
-        demandas_salsa_chica_verde = [obtener_datos(verde_chica_min, verde_chica_max, enfoque) for _ in range(5)]
-        demandas_salsa_mediana_verde = [obtener_datos(verde_med_min, verde_med_max, enfoque) for _ in range(5)]
-        demandas_salsa_grande_verde = [obtener_datos(verde_grande_min, verde_grande_max, enfoque) for _ in range(5)]
+        demandas_salsa_chica_verde = [obtener_datos2(verde_chica_min, verde_chica_max, enfoque,j) 
+                              for i in range(5) 
+                              for j in ([0] * 2 + [2] + [4] * 2)[i:i+1]]
+
+        demandas_salsa_mediana_verde = [obtener_datos2(verde_med_min, verde_med_max, enfoque,j) 
+                                for i in range(5) 
+                                for j in ([0] * 2 + [2] + [4] * 2)[i:i+1]]
+
+        demandas_salsa_grande_verde = [obtener_datos2(verde_grande_min, verde_grande_max, enfoque,j) 
+                               for i in range(5) 
+                               for j in ([0] * 2 + [2] + [4] * 2)[i:i+1]]
+
         
         # Generate data for salsa roja
-        demandas_salsa_chica_roja = [obtener_datos(roja_chica_min, roja_chica_max, enfoque) for _ in range(5)]
-        demandas_salsa_mediana_roja = [obtener_datos(roja_med_min, roja_med_max, enfoque) for _ in range(5)]
-        demandas_salsa_grande_roja = [obtener_datos(roja_grande_min, roja_grande_max, enfoque) for _ in range(5)]
+        demandas_salsa_chica_roja = [obtener_datos2(roja_chica_min, roja_chica_max, enfoque,j) 
+                              for i in range(5) 
+                              for j in ([0] * 2 + [2] + [4] * 2)[i:i+1]]
+
+        demandas_salsa_mediana_roja = [obtener_datos2(roja_med_min, roja_med_max, enfoque,j) 
+                                for i in range(5) 
+                                for j in ([0] * 2 + [2] + [4] * 2)[i:i+1]]
+
+        demandas_salsa_grande_roja = [obtener_datos2(roja_grande_min, roja_grande_max, enfoque,j) 
+                               for i in range(5) 
+                               for j in ([0] * 2 + [2] + [4] * 2)[i:i+1]]
+
         
         # Generate data for herramentales
         llegada_herramental1 = [obtener_datos(herr1_min, herr1_max, enfoque) for _ in range(5)]
