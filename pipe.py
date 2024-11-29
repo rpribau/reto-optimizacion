@@ -18,9 +18,9 @@ def run():
     rM3 = st.sidebar.number_input("Rate Máquina 3 (rM3)", min_value=50, max_value=500, value=200, step=10)
 
     st.sidebar.subheader("Capacidades Máximas (litros)")
-    capacidad_max_M1 = st.sidebar.number_input("Capacidad Máxima M1", min_value=100, max_value=500, value=345, step=10)
-    capacidad_max_M2 = st.sidebar.number_input("Capacidad Máxima M2", min_value=100, max_value=500, value=435, step=10)
-    capacidad_max_M3 = st.sidebar.number_input("Capacidad Máxima M3", min_value=100, max_value=500, value=300, step=10)
+    capacidad_max_M1 = st.sidebar.number_input("Capacidad Máxima M1", min_value=100, max_value=500, value=350, step=10)
+    capacidad_max_M2 = st.sidebar.number_input("Capacidad Máxima M2", min_value=100, max_value=500, value=450, step=10)
+    capacidad_max_M3 = st.sidebar.number_input("Capacidad Máxima M3", min_value=100, max_value=500, value=400, step=10)
 
     st.sidebar.subheader("Capacidades Mínimas (litros)")
     capacidad_min_M1 = st.sidebar.number_input("Capacidad Mínima M1", min_value=10, max_value=100, value=20, step=5)
